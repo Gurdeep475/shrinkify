@@ -21,12 +21,12 @@
     </nav>
     <div class="container">
         <div class="container align-items-center  px-0 py-0">
-          <form class="row g-3 my-4">
+          <form action="/" method="POST" class="row g-3 my-4">
               <div class="col-auto">
                 <label for="fullUrl" id="fullUrl" class="visually-hidden">Url</label>
               </div>
               <div class="col-8 justify-content-center">
-                <input type="url" class="col form-control" id="url" placeholder="Url">
+                <input type="url" name="fullUrl" class="col form-control" id="fullUrl" placeholder="Url">
               </div>
               <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-3">Shrinkify</button>
@@ -44,33 +44,18 @@
             </tr>
           </thead>
           <tbody>
+
+            <% shrinks.forEach(shrink => { %> 
             <tr>
               <td>
-                <a href="https://courses.webdevSimplified.com"
-                  >https://courses.webdevSimplified.com</a
+                <a href="<%= shrink.fullUrl %> "
+                  ><%= shrink.fullUrl %> </a
                 >
               </td>
-              <td><a href="/12345">12345</a></td>
-              <td>10</td>
+              <td><a href="<%= shrink.shortUrl %> "><%= shrink.shortUrl %> </a></td>
+              <td><%= shrink.clicks %> </td>
             </tr>
-            <tr>
-              <td>
-                <a href="https://courses.webdevSimplified.com"
-                  >https://courses.webdevSimplified.com</a
-                >
-              </td>
-              <td><a href="/12345">12345</a></td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://courses.webdevSimplified.com"
-                  >https://courses.webdevSimplified.com</a
-                >
-              </td>
-              <td><a href="/12345">12345</a></td>
-              <td>10</td>
-            </tr>
+              <% }) %> 
           </tbody>
         </table>
     </div>
