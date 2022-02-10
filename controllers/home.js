@@ -7,6 +7,7 @@ exports.getHomePage = (req,res,next) => {
     // fetch from database
     Shrink.find()
     .then(shrinks => {
+        shrinks.reverse();
         console.log(shrinks);
         res.render('index',{shrinks:shrinks}); //passing our table info here
     })
