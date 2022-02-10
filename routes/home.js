@@ -6,4 +6,6 @@ router.get('',homeController.getHomePage)
 
 router.post('',homeController.postHomePage)
 
+router.get('/:shortUrl',homeController.shortToFull)
+
 module.exports = router;
