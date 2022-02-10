@@ -1,12 +1,6 @@
 <%- include('./includes/head.ejs') %>
 </head>
   <body>
-    <!-- <nav class="navbar navbar-light bg-primary">
-      <a class="navbar-brand text-white" href="/">
-        <img src="/logo/Shrinkify.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Shrinkify
-      </a>
-    </nav> -->
     <%- include('./includes/navbar.ejs') %> 
     <div class="container">
         <div class="container align-items-center  px-0 py-0">
@@ -23,32 +17,24 @@
             </form>
         </div>
 
-    <div class="container">
-        <table class="table table-striped table-responsive">
-          <thead>
-            <tr>
-              <th>Full URL</th>
-              <th>Short URL</th>
-              <th>Clicks</th>
-            </tr>
-          </thead>
-          <tbody>
-
             <% shrinks.forEach(shrink => { %> 
-            <tr>
-              <td>
-                <a href="<%= shrink.fullUrl %> "
+            <div class="card border-success mb-3" style="max-width: 70rem;">
+              <div class="card-header  border-success">Full Url: <a href="<%= shrink.fullUrl %> "
+                target="_blank"
+                ><%= shrink.fullUrl %> </a
+              ></div>
+              <div class="card-body bg-light text-success">
+                Short Url: 
+                <a href="<%= shrink.shortUrl %> "
                   target="_blank"
-                  ><%= shrink.fullUrl %> </a
+                  ><%= shrink.shortUrl %> </a
                 >
-              </td>
-              <td><a href="<%= shrink.shortUrl %> "><%= shrink.shortUrl %> </a></td>
-              <td><%= shrink.clicks %> </td>
-            </tr>
+              </div>
+              <div class="card-footer bg-transparent border-success">Clicks: <%= shrink.clicks %></div>
+            </div>
               <% }) %> 
-          </tbody>
         </table>
-    </div>
+    
     </div>
   </body>
 </html>
