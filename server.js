@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/home');
 const mongoose = require('mongoose'); 
 const { connected } = require('process');
+const key = require('./private/secretKeys');
 
 app.set('view engine','ejs');
 app.set('views','views');
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/',routes.homePage);
 
-mongoose.connect("mongodb+srv://gurdeepsingh475475:453113@cluster0.jdu7q.mongodb.net/shrinkify?retryWrites=true&w=majority")
+mongoose.connect(key)
 .then((result) => {
     console.log("connected");
     app.listen(3000);
