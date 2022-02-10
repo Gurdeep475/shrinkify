@@ -20,5 +20,5 @@ app.use('/',homeRoutes);
 mongoose.connect(key)
 .then((result) => {
     console.log("connected");
-    app.listen(3000);
+    app.listen(process.env.PORT || 3000);
 })
