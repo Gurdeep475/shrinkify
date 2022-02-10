@@ -30,6 +30,11 @@ exports.shortToFull = (req,res,next) => {
     const shortUrl = req.params.shortUrl;
     Shrink.findOne({shortUrl:shortUrl})
     .then(shrink => {
+        if(!shrink)
+        {
+            res.render('err');
+            return null;
+        }
         const fullUrl = shrink.fullUrl;
         res.redirect(fullUrl);
         shrink.clicks = shrink.clicks+1;
