@@ -1,4 +1,5 @@
-<%- include('./includes/head.ejs') %> 
+<%- include('./includes/head.ejs') %>
+</head>
   <body>
     <!-- <nav class="navbar navbar-light bg-primary">
       <a class="navbar-brand text-white" href="/">
@@ -6,14 +7,7 @@
         Shrinkify
       </a>
     </nav> -->
-    <ul class="py-2   nav bg-primary justify-content-center">
-      <li class="nav-item">
-        <a class="display-6 lead text-white nav-link active" href="/">Shrinkify</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-    </ul>
+    <%- include('./includes/navbar.ejs') %> 
     <div class="container">
         <div class="container align-items-center  px-0 py-0">
           <form action="/" method="POST" class="row g-3 my-4">
